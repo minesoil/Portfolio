@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Your Name</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    /* Filter bar */
+    .filter-bar {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .filter-btn {
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 400;
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      color: var(--ink-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--white);
+    }
+
+    /* Projects grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .project-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+
+    .project-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+
+    .project-thumb {
+      height: 160px;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .project-thumb.color-1 { background: #EAF3EE; }
+    .project-thumb.color-2 { background: #EEF2FB; }
+    .project-thumb.color-3 { background: #FBF3EA; }
+    .project-thumb.color-4 { background: #F3EAFB; }
+
+    .project-status {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.25rem 0.6rem;
+      border-radius: 100px;
+    }
+
+    .status-complete {
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+
+    .status-progress {
+      background: #FBF3EA;
+      color: #8C5A10;
+    }
+
+    .status-planned {
+      background: rgba(26,25,22,0.06);
+      color: var(--ink-muted);
+    }
+
+    .project-body {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-title {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .project-desc {
+      font-size: 0.8375rem;
+      color: var(--ink-muted);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 1.25rem;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 0.6rem;
+    }
+
+    .project-link {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 0.35rem 0.8rem;
+      border-radius: 100px;
+      border: 1px solid var(--accent);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .project-link:hover {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .project-link.secondary {
+      color: var(--ink-muted);
+      border-color: var(--border);
+    }
+
+    .project-link.secondary:hover {
+      background: rgba(26,25,22,0.06);
+      color: var(--ink);
+    }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      padding: 4rem 2rem;
+      border: 1px dashed var(--border-mid);
+      border-radius: var(--radius-lg);
+      display: none;
+    }
+
+    .empty-state.show { display: block; }
+
+    .empty-state p {
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="nav-placeholder"></div>
+
+  <main>
+    <section class="page-section">
+      <p class="section-label fade-in">What I've Built</p>
+      <h1 class="section-title fade-in">Projects</h1>
+      <p class="section-subtitle fade-in" style="margin-bottom:2.5rem;">
+        Personal projects, school assignments, and anything I've built or contributed to.
+        Add your own as you go!
+      </p>
+
+      <!-- Filter bar -->
+      <div class="filter-bar fade-in">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="school">School</button>
+        <button class="filter-btn" data-filter="personal">Personal</button>
+        <button class="filter-btn" data-filter="research">Research</button>
+      </div>
+
+      <!-- Projects grid -->
+      <div class="projects-grid" id="projects-grid">
+
+        <!-- TEMPLATE PROJECT CARD — duplicate and edit to add more -->
+        <div class="project-card fade-in" data-category="personal">
+          <div class="project-thumb color-1">
+            💡
+            <span class="project-status status-progress">In progress</span>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">Personal</span>
+              <span class="tag tag-gray">Add tag</span>
+            </div>
+            <h3 class="project-title">Your Project Title</h3>
+            <p class="project-desc">
+              Describe what this project is about, what you built, what you learned,
+              or what problem it solves. Keep it short and clear.
+            </p>
+            <div class="project-links">
+              <a href="#" class="project-link">View project</a>
+              <a href="#" class="project-link secondary">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card fade-in" data-category="school">
+          <div class="project-thumb color-2">
+            📝
+            <span class="project-status status-complete">Complete</span>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">School</span>
+              <span class="tag tag-gray">Add tag</span>
+            </div>
+            <h3 class="project-title">School Assignment or Project</h3>
+            <p class="project-desc">
+              A class project, research paper, or assignment you're proud of.
+              What subject was it? What did you learn?
+            </p>
+            <div class="project-links">
+              <a href="#" class="project-link secondary">View file</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card fade-in" data-category="research">
+          <div class="project-thumb color-3">
+            🔬
+            <span class="project-status status-planned">Planned</span>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">Research</span>
+            </div>
+            <h3 class="project-title">Research or Exploration</h3>
+            <p class="project-desc">
+              Something you're exploring, a topic you researched, or a future
+              project you're planning to start.
+            </p>
+            <div class="project-links">
+              <a href="#" class="project-link secondary">Notes</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="empty-state" id="empty-state">
+        <p>No projects in this category yet. Add some to get started!</p>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span class="year"></span> Your Name · Built for college &amp; beyond</p>
+  </footer>
+
+  <script src="../js/nav-template.js"></script>
+  <script src="../js/nav.js"></script>
+  <script>
+    injectNav(false);
+    document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());
+
+    // Filter logic
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.project-card');
+    const emptyState = document.getElementById('empty-state');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+        let visible = 0;
+
+        cards.forEach(card => {
+          const match = filter === 'all' || card.dataset.category === filter;
+          card.style.display = match ? '' : 'none';
+          if (match) visible++;
+        });
+
+        emptyState.classList.toggle('show', visible === 0);
+      });
+    });
+  </script>
+</body>
+</html>

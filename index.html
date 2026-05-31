@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name — Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── Hero ── */
+    .hero {
+      min-height: calc(100vh - var(--nav-height));
+      display: flex;
+      align-items: center;
+      padding: 0 var(--side-pad);
+    }
+
+    .hero-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .hero-eyebrow span {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-desc {
+      font-size: 1.0625rem;
+      color: var(--ink-muted);
+      max-width: 500px;
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── Hero card ── */
+    .hero-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .hero-card-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    .hero-card-name {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .hero-card-sub {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      margin-top: 2px;
+    }
+
+    .hero-card-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .stat-box {
+      background: var(--cream);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      margin-top: 4px;
+      font-weight: 400;
+    }
+
+    .hero-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    /* ── Quick links grid ── */
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .quick-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      transition: box-shadow 0.25s, transform 0.25s;
+      text-decoration: none;
+    }
+
+    .quick-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .quick-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .quick-card h3 {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .quick-card p {
+      font-size: 0.8125rem;
+      color: var(--ink-muted);
+      line-height: 1.5;
+    }
+
+    .quick-arrow {
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-top: auto;
+    }
+
+    @media (max-width: 860px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+      .hero-card {
+        max-width: 420px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="nav-placeholder"></div>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="hero-eyebrow fade-in">
+            <div class="hero-dot"></div>
+            <span>Student Portfolio</span>
+          </div>
+          <h1 class="hero-title fade-in">
+            Hi, I'm<br><em>Your Name</em>
+          </h1>
+          <p class="hero-desc fade-in">
+            A student building skills, earning certifications, and growing
+            through projects. This is my living portfolio — updated as I learn.
+          </p>
+          <div class="hero-actions fade-in">
+            <a href="pages/projects.html" class="btn btn-primary">View Projects</a>
+            <a href="pages/about.html" class="btn btn-outline">About Me</a>
+          </div>
+        </div>
+
+        <div class="hero-card fade-in">
+          <div class="hero-card-header">
+            <div class="avatar">YN</div>
+            <div>
+              <div class="hero-card-name">Your Name</div>
+              <div class="hero-card-sub">Student · Aspiring Professional</div>
+            </div>
+          </div>
+          <div class="hero-card-stats">
+            <div class="stat-box">
+              <div class="stat-num">0</div>
+              <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">1</div>
+              <div class="stat-label">Certifications</div>
+            </div>
+          </div>
+          <div class="hero-card-tags">
+            <span class="tag">Add</span>
+            <span class="tag">Your</span>
+            <span class="tag">Skills</span>
+            <span class="tag tag-gray">Here</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- QUICK LINKS -->
+    <section class="page-section">
+      <p class="section-label fade-in">Explore</p>
+      <h2 class="section-title fade-in">Everything in one place</h2>
+      <p class="section-subtitle fade-in" style="margin-bottom:3rem;">
+        Browse my skills, certifications, and projects — all organized for you.
+      </p>
+
+      <div class="quick-grid">
+        <a href="pages/about.html" class="quick-card fade-in">
+          <div class="quick-icon">👤</div>
+          <h3>About Me</h3>
+          <p>Background, interests, and goals for college and beyond.</p>
+          <span class="quick-arrow">Read more →</span>
+        </a>
+        <a href="pages/skills.html" class="quick-card fade-in">
+          <div class="quick-icon">🛠</div>
+          <h3>Skills</h3>
+          <p>Technical and soft skills I've been developing.</p>
+          <span class="quick-arrow">See skills →</span>
+        </a>
+        <a href="pages/projects.html" class="quick-card fade-in">
+          <div class="quick-icon">💡</div>
+          <h3>Projects</h3>
+          <p>Things I've built, researched, or contributed to.</p>
+          <span class="quick-arrow">See projects →</span>
+        </a>
+        <a href="pages/certifications.html" class="quick-card fade-in">
+          <div class="quick-icon">🏅</div>
+          <h3>Certifications</h3>
+          <p>Credentials and badges I've earned along the way.</p>
+          <span class="quick-arrow">View certs →</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Your Name · Built for college &amp; beyond</p>
+  </footer>
+
+  <script src="js/nav-template.js"></script>
+  <script src="js/nav.js"></script>
+  <script>
+    injectNav(true);
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

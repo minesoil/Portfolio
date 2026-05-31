@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skills — Your Name</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .skills-categories {
+      display: flex;
+      flex-direction: column;
+      gap: 3.5rem;
+    }
+
+    .skill-category h3 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .skill-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .skill-item:hover {
+      box-shadow: var(--shadow-sm);
+      transform: translateY(-1px);
+    }
+
+    .skill-name {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .skill-level-bar {
+      height: 4px;
+      background: var(--cream);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+
+    .skill-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 100px;
+      transition: width 1s ease;
+    }
+
+    .skill-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .skill-sublabel {
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+    }
+
+    /* Soft skills section */
+    .soft-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .soft-tag {
+      font-size: 0.8125rem;
+      font-weight: 400;
+      padding: 0.45rem 1rem;
+      border-radius: 100px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      color: var(--ink);
+      transition: background 0.2s, border-color 0.2s;
+      cursor: default;
+    }
+
+    .soft-tag:hover {
+      background: var(--accent-light);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Currently learning */
+    .learning-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .learning-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .learning-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .learning-card h4 {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+
+    .learning-card p {
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      line-height: 1.5;
+    }
+
+    .progress-pill {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+      background: var(--accent-light);
+      color: var(--accent);
+      margin-top: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="nav-placeholder"></div>
+
+  <main>
+    <section class="page-section">
+      <p class="section-label fade-in">What I Know</p>
+      <h1 class="section-title fade-in">Skills</h1>
+      <p class="section-subtitle fade-in" style="margin-bottom:3.5rem;">
+        A living record of my technical skills, tools, and soft skills — updated as I grow.
+        Proficiency levels are self-assessed and honest.
+      </p>
+
+      <div class="skills-categories">
+
+        <!-- Technical Skills -->
+        <div class="skill-category fade-in">
+          <h3>💻 Technical Skills</h3>
+          <div class="skill-grid">
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span class="skill-name">Add a skill</span>
+                <span class="skill-sublabel">Beginner</span>
+              </div>
+              <div class="skill-level-bar"><div class="skill-fill" style="width:25%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span class="skill-name">Add a skill</span>
+                <span class="skill-sublabel">Intermediate</span>
+              </div>
+              <div class="skill-level-bar"><div class="skill-fill" style="width:55%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span class="skill-name">Add a skill</span>
+                <span class="skill-sublabel">Advanced</span>
+              </div>
+              <div class="skill-level-bar"><div class="skill-fill" style="width:80%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="skill-category fade-in">
+          <h3>🛠 Tools &amp; Software</h3>
+          <div class="skill-grid">
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span class="skill-name">Add a tool</span>
+                <span class="skill-sublabel">Familiar</span>
+              </div>
+              <div class="skill-level-bar"><div class="skill-fill" style="width:40%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span class="skill-name">Add a tool</span>
+                <span class="skill-sublabel">Comfortable</span>
+              </div>
+              <div class="skill-level-bar"><div class="skill-fill" style="width:65%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="skill-category fade-in">
+          <h3>🤝 Soft Skills</h3>
+          <div class="soft-skills">
+            <span class="soft-tag">Communication</span>
+            <span class="soft-tag">Problem Solving</span>
+            <span class="soft-tag">Time Management</span>
+            <span class="soft-tag">Teamwork</span>
+            <span class="soft-tag">Adaptability</span>
+            <span class="soft-tag">Critical Thinking</span>
+            <span class="soft-tag">Add more...</span>
+          </div>
+        </div>
+
+        <!-- Currently Learning -->
+        <div class="skill-category fade-in">
+          <h3>📖 Currently Learning</h3>
+          <div class="learning-grid">
+            <div class="learning-card">
+              <div class="learning-icon">🔍</div>
+              <div>
+                <h4>Add what you're learning</h4>
+                <p>Describe the resource, course, or skill you're working on now.</p>
+                <span class="progress-pill">In progress</span>
+              </div>
+            </div>
+            <div class="learning-card">
+              <div class="learning-icon">🧠</div>
+              <div>
+                <h4>Another topic</h4>
+                <p>Another skill or course you're actively studying.</p>
+                <span class="progress-pill">Just started</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span class="year"></span> Your Name · Built for college &amp; beyond</p>
+  </footer>
+
+  <script src="../js/nav-template.js"></script>
+  <script src="../js/nav.js"></script>
+  <script>
+    injectNav(false);
+    document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());
+
+    // Animate skill bars on scroll
+    const bars = document.querySelectorAll('.skill-fill');
+    const widths = Array.from(bars).map(b => b.style.width);
+    bars.forEach(b => b.style.width = '0');
+
+    const barObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const idx = Array.from(bars).indexOf(e.target);
+          setTimeout(() => { e.target.style.width = widths[idx]; }, 100);
+          barObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    bars.forEach(b => barObserver.observe(b));
+  </script>
+</body>
+</html>

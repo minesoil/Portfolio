@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Your Name</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    /* Form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: 0.02em;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--ink);
+      background: var(--white);
+      border: 1px solid var(--border-mid);
+      border-radius: var(--radius-sm);
+      padding: 0.65rem 0.9rem;
+      width: 100%;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      appearance: none;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(44, 95, 74, 0.1);
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.8rem 2rem;
+      border-radius: 100px;
+      border: none;
+      background: var(--accent);
+      color: var(--white);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      align-self: flex-start;
+    }
+
+    .submit-btn:hover {
+      background: var(--accent-mid);
+      transform: translateY(-1px);
+    }
+
+    .form-note {
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      margin-top: -0.5rem;
+    }
+
+    /* Success state */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 3rem;
+      background: var(--accent-light);
+      border-radius: var(--radius-lg);
+    }
+
+    .form-success.show { display: block; }
+
+    .form-success h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-success p {
+      font-size: 0.9rem;
+      color: var(--accent);
+      opacity: 0.8;
+    }
+
+    /* Contact links sidebar */
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-link-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .contact-link-card:hover {
+      box-shadow: var(--shadow-sm);
+      transform: translateY(-1px);
+    }
+
+    .contact-link-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .contact-link-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted);
+      margin-bottom: 2px;
+    }
+
+    .contact-link-value {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .contact-link-arrow {
+      margin-left: auto;
+      color: var(--ink-faint);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 860px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="nav-placeholder"></div>
+
+  <main>
+    <section class="page-section">
+      <p class="section-label fade-in">Say Hello</p>
+      <h1 class="section-title fade-in">Get in touch</h1>
+      <p class="section-subtitle fade-in" style="margin-bottom:3rem;">
+        Whether it's for collaboration, feedback, or just a hello — feel free to reach out.
+      </p>
+
+      <div class="contact-grid">
+        <!-- Form -->
+        <div class="fade-in">
+          <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_ID" method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="first-name">First name</label>
+                <input type="text" id="first-name" name="first_name" placeholder="Jane" required />
+              </div>
+              <div class="form-group">
+                <label for="last-name">Last name</label>
+                <input type="text" id="last-name" name="last_name" placeholder="Smith" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <select id="subject" name="subject">
+                <option value="">Select a topic...</option>
+                <option value="collaboration">Collaboration</option>
+                <option value="feedback">Portfolio feedback</option>
+                <option value="opportunity">Opportunity</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Hi, I wanted to reach out about..." required></textarea>
+            </div>
+
+            <p class="form-note">
+              💡 Tip: You can also connect this to Formspree or EmailJS for real email delivery.
+              Replace the action URL above with your Formspree endpoint.
+            </p>
+
+            <button type="submit" class="submit-btn">Send message →</button>
+          </form>
+
+          <div class="form-success" id="form-success">
+            <h3>Message sent! ✓</h3>
+            <p>Thanks for reaching out — I'll get back to you soon.</p>
+          </div>
+        </div>
+
+        <!-- Contact links -->
+        <div class="contact-links fade-in">
+          <a href="mailto:your@email.com" class="contact-link-card">
+            <div class="contact-link-icon">✉️</div>
+            <div>
+              <div class="contact-link-label">Email</div>
+              <div class="contact-link-value">your@email.com</div>
+            </div>
+            <span class="contact-link-arrow">→</span>
+          </a>
+
+          <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener" class="contact-link-card">
+            <div class="contact-link-icon">💼</div>
+            <div>
+              <div class="contact-link-label">LinkedIn</div>
+              <div class="contact-link-value">linkedin.com/in/yourprofile</div>
+            </div>
+            <span class="contact-link-arrow">→</span>
+          </a>
+
+          <a href="https://github.com/yourusername" target="_blank" rel="noopener" class="contact-link-card">
+            <div class="contact-link-icon">💻</div>
+            <div>
+              <div class="contact-link-label">GitHub</div>
+              <div class="contact-link-value">github.com/yourusername</div>
+            </div>
+            <span class="contact-link-arrow">→</span>
+          </a>
+
+          <!-- Add more social links here following the same pattern -->
+
+          <div style="background:var(--cream);border-radius:var(--radius-md);padding:1.25rem;margin-top:0.5rem;">
+            <p style="font-size:0.8rem;color:var(--ink-muted);line-height:1.65;">
+              ✏️ <strong style="color:var(--ink);font-weight:500;">To customize:</strong> Replace the email, LinkedIn, and GitHub
+              links above with your own. Add or remove cards as needed.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span class="year"></span> Your Name · Built for college &amp; beyond</p>
+  </footer>
+
+  <script src="../js/nav-template.js"></script>
+  <script src="../js/nav.js"></script>
+  <script>
+    injectNav(false);
+    document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());
+
+    const form = document.getElementById('contact-form');
+    const success = document.getElementById('form-success');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+
+      // If using Formspree, uncomment below:
+      // try {
+      //   await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+      // } catch {}
+
+      // For now, just show success state as demo
+      form.style.display = 'none';
+      success.classList.add('show');
+    });
+  </script>
+</body>
+</html>

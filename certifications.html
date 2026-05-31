@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certifications — Your Name</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    /* Certs grid */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .cert-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+
+    .cert-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .cert-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .cert-badge-wrap {
+      flex-shrink: 0;
+    }
+
+    .cert-info {
+      flex: 1;
+    }
+
+    .cert-issuer {
+      font-size: 0.72rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .cert-name {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+
+    .cert-date {
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+    }
+
+    .cert-desc {
+      font-size: 0.8125rem;
+      color: var(--ink-muted);
+      line-height: 1.65;
+    }
+
+    .cert-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .cert-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .verify-link {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      transition: opacity 0.2s;
+    }
+
+    .verify-link:hover { opacity: 0.7; }
+
+    /* Credly embed wrapper */
+    .credly-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 270px;
+    }
+
+    /* In-progress / planned section */
+    .progress-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .progress-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .progress-icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .progress-item h4 {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    .progress-item p {
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+    }
+
+    .progress-right {
+      margin-left: auto;
+    }
+
+    .badge-status {
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.25rem 0.65rem;
+      border-radius: 100px;
+    }
+
+    .badge-studying {
+      background: #FBF3EA;
+      color: #8C5A10;
+    }
+
+    .badge-planned {
+      background: rgba(26,25,22,0.06);
+      color: var(--ink-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="nav-placeholder"></div>
+
+  <main>
+    <section class="page-section">
+      <p class="section-label fade-in">Verified Credentials</p>
+      <h1 class="section-title fade-in">Certifications</h1>
+      <p class="section-subtitle fade-in" style="margin-bottom:3rem;">
+        Badges and certifications I've earned. Each one represents real learning and effort.
+      </p>
+
+      <div class="certs-grid">
+
+        <!-- ── CREDLY BADGE CARD ── -->
+        <div class="cert-card fade-in">
+          <div class="cert-card-header">
+            <div class="credly-wrap">
+              <!-- Paste your Credly embed code here -->
+              <div data-iframe-width="150" data-iframe-height="270"
+                   data-share-badge-id="b85c8344-cd8c-4f7a-b6d7-0ae511770c9c"
+                   data-share-badge-host="https://www.credly.com">
+              </div>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-issuer">Credly / Your Issuer</div>
+            <div class="cert-name">Update with your certification name</div>
+            <div class="cert-date">Earned: Add the date</div>
+          </div>
+          <p class="cert-desc">
+            Describe what this certification covers, what you had to do to earn it,
+            and why it matters to your goals.
+          </p>
+          <div class="cert-footer">
+            <div class="cert-skills">
+              <span class="tag tag-gray">Skill 1</span>
+              <span class="tag tag-gray">Skill 2</span>
+            </div>
+            <a href="https://www.credly.com/badges/b85c8344-cd8c-4f7a-b6d7-0ae511770c9c"
+               target="_blank" rel="noopener" class="verify-link">
+              Verify ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- TEMPLATE: Add more cert cards below (duplicate and edit) -->
+        <!--
+        <div class="cert-card fade-in">
+          <div class="cert-card-header">
+            <div class="cert-info">
+              <div class="cert-issuer">Issuing Organization</div>
+              <div class="cert-name">Certification Name</div>
+              <div class="cert-date">Earned: Month Year</div>
+            </div>
+          </div>
+          <p class="cert-desc">Description of what you learned.</p>
+          <div class="cert-footer">
+            <div class="cert-skills">
+              <span class="tag tag-gray">Topic</span>
+            </div>
+            <a href="#" target="_blank" class="verify-link">Verify ↗</a>
+          </div>
+        </div>
+        -->
+
+      </div>
+
+      <hr class="divider" style="margin-bottom:3rem;" />
+
+      <!-- In progress / planned -->
+      <p class="section-label fade-in">On the Horizon</p>
+      <h2 style="font-family:var(--font-display);font-size:1.6rem;font-weight:400;letter-spacing:-0.02em;margin-bottom:1.5rem;" class="fade-in">
+        Working toward
+      </h2>
+
+      <div class="progress-list">
+        <div class="progress-item fade-in">
+          <div class="progress-icon">📘</div>
+          <div>
+            <h4>Certification I'm studying for</h4>
+            <p>Add the name and issuing org here</p>
+          </div>
+          <div class="progress-right">
+            <span class="badge-status badge-studying">Studying</span>
+          </div>
+        </div>
+
+        <div class="progress-item fade-in">
+          <div class="progress-icon">🎯</div>
+          <div>
+            <h4>Future certification goal</h4>
+            <p>Something I plan to pursue later</p>
+          </div>
+          <div class="progress-right">
+            <span class="badge-status badge-planned">Planned</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span class="year"></span> Your Name · Built for college &amp; beyond</p>
+  </footer>
+
+  <!-- Credly embed script -->
+  <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+
+  <script src="../js/nav-template.js"></script>
+  <script src="../js/nav.js"></script>
+  <script>
+    injectNav(false);
+    document.querySelectorAll('.year').forEach(el => el.textContent = new Date().getFullYear());
+  </script>
+</body>
+</html>
